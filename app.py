@@ -1,6 +1,8 @@
 from app.service import Serve
 
 serve = Serve()
-serve.serve()
+result = serve.serve()
 
-
+# Writing the output to a file
+with open("result.txt", "w") as file:
+    file.write(result)

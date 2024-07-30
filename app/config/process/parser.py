@@ -7,20 +7,20 @@ class Parser(Decrypt):
     def parser_config(self):
         parser = argparse.ArgumentParser()
 
-        # Argümanları ekle
+        # Add arguments
         parser.add_argument('--env', type=str, required=True, help='Environment')
         parser.add_argument('--key', type=str, required=True, help='Encrypted key')
 
-        # Argümanları parse et
+        # Parse arguments
         args = parser.parse_args()
 
-        # Argümanları sözlük olarak al
-        key = args.key.encode()  # Eğer anahtar bir byte dizisi olarak saklanıyorsa, encode et
+        # Get arguments as dictionary
+        key = args.key.encode()   # If the key is stored as a byte array, encode
         env = args.env
         
         exec(f"from ..environment.{env} import config" , globals())
           
-       # Şifreli anahtar kullanarak config değerlerini güncelle
+        # Update config values ​​using encrypted key
 
         config["POSTGRES"]["password"] = self.decrypt(key ,config["POSTGRES"]["password"])
         os.environ["OPENAI_API_KEY"] = self.decrypt(key ,config["OPENAI"]["OPENAI_API_KEY"])

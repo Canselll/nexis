@@ -1,9 +1,0 @@
-- requirements txt  +
-
-- files 
--git ignore datasets
-
-- dosyadan farklı raporlama örneklerini alıp expected outputu güncelleme
-- readme doldur
--groq var mı bak kullandın mı ona göre requirements txt ekle
--ufuk video attı  prompt enginerrinf

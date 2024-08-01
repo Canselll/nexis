@@ -14,14 +14,14 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 
 ## Installation
 
-### Docker ve Anaconda Container Kurulumu
+## Docker and Anaconda Container Installation
 
-1. **Docker'ı İndirin ve Kurun:**
-   Docker'ı indirmek ve kurmak için [Docker Kurulumu](https://docs.docker.com/get-docker/) talimatlarını izleyin.
+1. **Install Docker:**
+   - Download and install Docker by following the instructions provided at [Docker Installation](https://docs.docker.com/get-docker/).
 
-2. **Anaconda Container'ı Oluşturun:**
-   Docker kullanarak Anaconda container'ını indirin ve çalıştırın:
+2. **Create and Run Anaconda Container:**
+   - Pull the Anaconda image from Docker Hub and start a container:
    
    ```bash
-   # Anaconda image'ini indirin ve container'ı başlatın
+   # Download the Anaconda image and start the container
    docker run -i -t continuumio/anaconda3 /bin/bash

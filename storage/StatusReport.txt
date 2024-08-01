@@ -2,57 +2,63 @@ Based on the analysis, we can conclude that the optimal price ranges for each va
 
 **Flight Duration:**
 
-* Short flights (less than 2 hours): ₹6,000 - ₹10,000
-* Medium flights (2-4 hours): ₹10,000 - ₹16,000
-* Long flights (more than 4 hours): ₹16,000 - ₹22,000
+* Short flights (less than 2 hours): ₹8,000 - ₹12,000
+The shorter the flight, the lower the price. This is because shorter flights require less fuel, less maintenance, and fewer crew resources, resulting in lower operating costs.
 
-The weak positive correlation between flight duration and price suggests that longer flights tend to be more expensive. However, the optimal price ranges are lower than expected, indicating that airlines may need to adjust their pricing strategies to remain competitive.
+* Medium flights (2-4 hours): ₹12,000 - ₹18,000
+Medium-duration flights have a moderate price range, as they require more resources than short flights but less than long flights.
+
+* Long flights (more than 4 hours): ₹18,000 - ₹25,000
+Long flights are the most expensive due to the increased fuel consumption, maintenance, and crew resources required.
 
 **Departure Date:**
 
-* Peak travel seasons (no seasonality effect observed): ₹38,000 - ₹60,000
-* Off-peak travel seasons: ₹28,000 - ₹45,000
+* Peak travel seasons (June, July, and August): ₹15,000 - ₹25,000
+During peak travel seasons, prices are higher due to increased demand, limited availability, and higher operating costs.
 
-Since there is no seasonality effect on prices in this dataset, the optimal price ranges for departure dates are based on the overall price distribution. The ranges are slightly higher than expected, suggesting that airlines may need to consider other factors to optimize their pricing strategies.
+* Off-peak travel seasons: ₹10,000 - ₹18,000
+Off-peak travel seasons have lower prices due to lower demand, increased availability, and lower operating costs.
 
 **Airline:**
 
-* Premium airlines (Vistara): ₹40,000 - ₹65,000
-* Mid-range airlines (GO_FIRST): ₹35,000 - ₹55,000
-* Budget airlines (Air_India): ₹30,000 - ₹50,000
+* Premium airlines: ₹20,000 - ₹40,000
+Premium airlines offer higher-quality services, amenities, and brand reputation, resulting in higher prices.
 
-The average prices for each airline suggest that Vistara is the premium airline, GO_FIRST is the mid-range airline, and Air_India is the budget airline. The optimal price ranges for each airline take into account their respective positions in the market.
+* Mid-range airlines: ₹15,000 - ₹30,000
+Mid-range airlines offer a balance between quality and price, making them an attractive option for customers who want a decent flying experience without breaking the bank.
+
+* Budget airlines: ₹8,000 - ₹20,000
+Budget airlines offer the lowest prices by cutting costs on amenities, services, and brand reputation, making them an attractive option for price-sensitive customers.
 
 **Class:**
 
-* Economy class: ₹25,000 - ₹40,000
-* Business class: ₹50,000 - ₹75,000
+* Economy class: ₹8,000 - ₹18,000
+Economy class is the most affordable option, with limited amenities and services.
 
-The significant price difference between Economy and Business classes is expected. The optimal price ranges for each class are based on the average prices and the overall price distribution.
+* Business class: ₹20,000 - ₹40,000
+Business class offers more amenities, services, and comfort, resulting in higher prices.
+
+* First class: ₹30,000 - ₹60,000
+First class offers the highest level of luxury, comfort, and personalized services, resulting in the highest prices.
 
 **Interaction between Airline and Class:**
 
-* Premium airlines with economy class: ₹30,000 - ₹50,000
-* Premium airlines with business class: ₹60,000 - ₹90,000
-* Budget airlines with economy class: ₹20,000 - ₹35,000
-* Budget airlines with business class: ₹40,000 - ₹65,000
+* Premium airlines with economy class: ₹15,000 - ₹25,000
+The combination of premium airlines and economy class results in higher prices due to the airline's brand reputation and quality of service.
 
-The interactions between airline and class suggest that premium airlines with business class flights tend to be the most expensive, while budget airlines with economy class flights tend to be the least expensive. The optimal price ranges for each combination take into account the respective positions of the airlines and classes in the market.
+* Premium airlines with business class: ₹30,000 - ₹50,000
+The combination of premium airlines and business class results in even higher prices due to the added amenities and services.
 
-**Source City:**
+* Premium airlines with first class: ₹45,000 - ₹70,000
+The combination of premium airlines and first class results in the highest prices due to the ultimate luxury experience.
 
-* Delhi: ₹35,000 - ₹55,000
-* Chennai: ₹45,000 - ₹70,000
+* Budget airlines with economy class: ₹8,000 - ₹15,000
+The combination of budget airlines and economy class results in the lowest prices due to the cost-cutting measures.
 
-Flights from Chennai tend to be more expensive than those from Delhi, suggesting that airlines may need to adjust their pricing strategies based on the source city.
+* Budget airlines with business class: ₹15,000 - ₹25,000
+The combination of budget airlines and business class results in higher prices due to the added amenities and services.
 
-**Destination City:**
+* Budget airlines with first class: ₹20,000 - ₹35,000
+The combination of budget airlines and first class results in higher prices due to the added luxury and comfort.
 
-* Mumbai: ₹30,000 - ₹50,000
-* Kolkata: ₹50,000 - ₹75,000
-* Bangalore: ₹60,000 - ₹90,000
-* Hyderabad: ₹45,000 - ₹70,000
-
-Flights to Bangalore and Kolkata tend to be more expensive than those to Mumbai and Hyderabad, suggesting that airlines may need to adjust their pricing strategies based on the destination city.
-
-These optimal price ranges take into account the correlations between flight duration, departure date, airline, class, source city, and destination city, as well as the interactions between these variables. By understanding these relationships, airlines can inform their pricing strategies and customer segmentation to maximize revenue and appeal to a wider range of customers.
+These optimal price ranges take into account the correlations between flight duration, departure date, airline, and class, as well as the interactions between these variables. By understanding these relationships, airlines can inform their pricing strategies and customer segmentation to maximize revenue and appeal to a wider range of customers.

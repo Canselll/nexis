@@ -51,6 +51,8 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
    # Download the Anaconda image and start the container
    docker run -i -t continuumio/anaconda3 /bin/bash
 
+   ```bash
+
 conda update conda
 conda create --name abr python= 3.10.8
 conda activate abr

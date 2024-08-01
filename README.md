@@ -11,6 +11,31 @@ We want to use the CrewAI platform to make price predictions. We define agents (
 To improve the results, we use the vector database Qdrant. Our goal is to take the output from Crew, save it to this database, and then use these vectors to achieve better results. We create a collection named "Flight" and define vector parameters. By performing operations on the output, we create points containing vectors and upload the points. We perform a vector query to conduct our semantic search and obtain the result.
 
 
+## Table of Contents
+
+1. [Requirements](#requirements)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
+4. [Usage](#usage)
+5. [Troubleshooting & FAQ](#troubleshooting--faq)
+6. [Maintainers](#maintainers)
+
+## Requirements
+
+- **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
+- **Anaconda**: [Install Anaconda](https://docs.anaconda.com/anaconda/install/)
+- **Git**: [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- **PostgreSQL**: Ensure PostgreSQL is set up for database management.
+- **CrewAI**: Required for price prediction using AI agents.
+- **Qdrant**: Vector database for improved search results.
+
+## Recommended Modules
+
+- **Pandas**: For data manipulation.
+- **Scikit-learn**: For machine learning tasks.
+- **SQLAlchemy**: For SQL database interaction.
+- **Qdrant-client**: For managing vectors in Qdrant.
+
 
 ## Installation
 
@@ -25,3 +50,4 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
    ```bash
    # Download the Anaconda image and start the container
    docker run -i -t continuumio/anaconda3 /bin/bash
+    

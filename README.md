@@ -14,7 +14,7 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 
 ## Installation
 
-## Docker and Anaconda Container Installation
+### Docker and Anaconda Container Installation
 
 1. **Install Docker:**
    - Download and install Docker by following the instructions provided at [Docker Installation](https://docs.docker.com/get-docker/).

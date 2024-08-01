@@ -36,24 +36,122 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 - **SQLAlchemy**: For SQL database interaction.
 - **Qdrant-client**: For managing vectors in Qdrant.
 
-
 ## Installation
 
 ### Docker and Anaconda Container Installation
 
 1. **Install Docker:**
-   - Download and install Docker by following the instructions provided at [Docker Installation](https://docs.docker.com/get-docker/).
+   - Download and install Docker by following the instructions at [Docker Installation](https://docs.docker.com/get-docker/).
 
 2. **Create and Run Anaconda Container:**
    - Pull the Anaconda image from Docker Hub and start a container:
-   
-   ```bash
-   # Download the Anaconda image and start the container
-   docker run -i -t continuumio/anaconda3 /bin/bash
 
-   ```bash
+     ```bash
+     docker run -i -t continuumio/anaconda3 /bin/bash
+     ```
 
-conda update conda
-conda create --name abr python= 3.10.8
-conda activate abr
+3. **Set Up the Anaconda Environment:**
+   - Inside the container, update `conda` and create a new environment:
+
+     ```bash
+     conda update conda
+     conda create --name nexis_env python=3.10
+     conda activate nexis_env
+     ```
+
+4. **Install Project Dependencies:**
+   - Copy your project files into the container:
+
+     ```bash
+     docker cp ./project_directory container_id:/home/project_directory
+     ```
+
+   - Access the container and install dependencies:
+
+     ```bash
+     docker exec -it container_id /bin/bash
+     cd /home/project_directory
+     pip install -r requirements.txt
+     ```
+
+5. **Set Up PostgreSQL:**
+   - Ensure PostgreSQL is running and create tables using SQL scripts:
+
+     ```bash
+     psql -h localhost -U postgres -d your_database
+     \i create_tables.sql
+     \i load_data.sql
+     ```
+
+6. **Configure CrewAI and Qdrant:**
+   - Set up CrewAI and Qdrant according to their documentation:
+
+     ```bash
+     qdrant-client create-collection --name Flight --vector-size 300
+     qdrant-client upload-vectors --collection Flight --vectors /path/to/vectors
+     ```
+
+## Configuration
+
+1. **Database Configuration:**
+   - Update the `database_config.py` file with your PostgreSQL connection details:
+
+     ```python
+     DATABASE = {
+         'host': 'localhost',
+         'port': 5432,
+         'user': 'postgres',
+         'password': 'your_password',
+         'database': 'your_database'
+     }
+     ```
+
+2. **CrewAI Configuration:**
+   - Configure your CrewAI agents and tasks in `crewai_config.py`:
+
+     ```python
+     CREWAI = {
+         'agents': ['analyst', 'writer'],
+         'tasks': ['research_task', 'writer_task']
+     }
+     ```
+
+3. **Qdrant Configuration:**
+   - Define vector parameters and collection settings in `qdrant_config.py`:
+
+     ```python
+     QDRANT = {
+         'collection_name': 'Flight',
+         'vector_size': 300
+     }
+     ```
+
+## Usage
+
+1. **Run the Project:**
+   - Execute the main script to make price predictions:
+
+     ```bash
+     python app.py --input data.txt --output result.txt
+     ```
+
+2. **Review Results:**
+   - Check the `result.txt` file for the predictions.
+
+## Troubleshooting & FAQ
+
+- **Issue: Docker container fails to start.**
+  - **Solution:** Ensure Docker is correctly installed and running. Check for errors in the Docker logs.
+
+- **Issue: Dependencies not installing properly.**
+  - **Solution:** Verify your `requirements.txt` file is correctly formatted. Ensure you are in the correct environment.
+
+- **Issue: Database connection errors.**
+  - **Solution:** Double-check your PostgreSQL configuration details and ensure the database server is running.
+
+## Maintainers
+
+- **Your Name** - *Project Lead* - [Your GitHub Profile](https://github.com/YourGitHubProfile)
+
+- **Contributor Name** - *Contributor* - [Contributor GitHub Profile](https://github.com/ContributorGitHubProfile)
 

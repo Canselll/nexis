@@ -55,8 +55,8 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 
      ```bash
      conda update conda
-     conda create --name nexis_env python=3.10
-     conda activate nexis_env
+     conda create --name nexis python=3.10.8
+     conda activate abr
      ```
 
 4. **Install Project Dependencies:**

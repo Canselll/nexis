@@ -32,7 +32,6 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 ## Recommended Modules
 
 - **Pandas**: For data manipulation.
-- **Scikit-learn**: For machine learning tasks.
 - **SQLAlchemy**: For SQL database interaction.
 - **Qdrant-client**: For managing vectors in Qdrant.
 
@@ -46,9 +45,17 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 2. **Create and Run Anaconda Container:**
    - Pull the Anaconda image from Docker Hub and start a container:
 
-     ```bash
-     docker run -i -t continuumio/anaconda3 /bin/bash
+       ```bash
+        docker run -d \
+        --name anaconda \
+        -p 8888:8888 \
+        -p 8000:8000 \
+        -v /path/to/your/local/directory:/home/jovyan/anaconda \
+        jupyter/pyspark-notebook
      ```
+
+     **Note:** The above command runs the container in detached mode (`-d`), names the container `anaconda`, maps ports 8888 and 8000, and mounts the local directory to `/home/jovyan/anaconda` inside the container. Make sure to replace `/path/to/your/local/directory` with the actual path to your local directory.
+
 
 3. **Set Up the Anaconda Environment:**
    - Inside the container, update `conda` and create a new environment:
@@ -56,83 +63,101 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
      ```bash
      conda update conda
      conda create --name nexis python=3.10.8
-     conda activate abr
+     conda activate nexis
      ```
 
 4. **Install Project Dependencies:**
-   - Copy your project files into the container:
-
-     ```bash
-     docker cp ./project_directory container_id:/home/project_directory
-     ```
-
    - Access the container and install dependencies:
 
      ```bash
-     docker exec -it container_id /bin/bash
+     docker exec -it container_id bash
      cd /home/project_directory
      pip install -r requirements.txt
      ```
 
 5. **Set Up PostgreSQL:**
-   - Ensure PostgreSQL is running and create tables using SQL scripts:
+   - Run PostgreSQL in a Docker container:
 
      ```bash
-     psql -h localhost -U postgres -d your_database
-     \i create_tables.sql
-     \i load_data.sql
+     docker run --name postgres-container \
+         -e POSTGRES_PASSWORD=your_password \
+         -p 5432:5432 \
+         -v postgres-data:/var/lib/postgresql/data \
+         -d postgres
      ```
 
-6. **Configure CrewAI and Qdrant:**
-   - Set up CrewAI and Qdrant according to their documentation:
+     **Note:** Replace `your_password` with a secure password of your choice.
+
+    - After starting the PostgreSQL container, connect to it and set up your database and tables. Here’s how you can set up the database and tables:
 
      ```bash
-     qdrant-client create-collection --name Flight --vector-size 300
-     qdrant-client upload-vectors --collection Flight --vectors /path/to/vectors
+     docker exec -it postgres-container psql -U postgres
      ```
+
+   - In the PostgreSQL prompt, create your database:
+
+     ```sql
+     CREATE DATABASE your_database;
+     \c your_database
+     ```
+
+   - Create tables by running the following SQL script. Below is an example script you might use (adjust according to your project requirements):
+
+     ```sql
+     -- Create the airline_table
+     CREATE TABLE airline_table (
+                                id SERIAL PRIMARY KEY,
+                                airline VARCHAR NOT NULL
+                            );
+
+     -- Create the classes_table
+    CREATE TABLE classes_table (
+                                id SERIAL PRIMARY KEY,
+                                class VARCHAR NOT NULL
+                            );
+
+    -- Create the flight_table
+    CREATE TABLE flight_table (
+                                id SERIAL PRIMARY KEY,
+                                flight VARCHAR NOT NULL,
+                                source_city VARCHAR NOT NULL,
+                                stops VARCHAR NOT NULL,
+                                destination_city VARCHAR NOT NULL,
+                                duration FLOAT,
+                                days_left INTEGER,
+                                price INTEGER,
+                                departure_date TIMESTAMP,
+                                arrival_date TIMESTAMP
+                            );
+
+
+     ```
+
+
+
 
 ## Configuration
 
 1. **Database Configuration:**
-   - Update the `database_config.py` file with your PostgreSQL connection details:
+   - Update the `base.py` file with your PostgreSQL connection details:
 
      ```python
-     DATABASE = {
-         'host': 'localhost',
-         'port': 5432,
+     POSTGRES = {
          'user': 'postgres',
          'password': 'your_password',
-         'database': 'your_database'
+         'host': 'postgres',
+         'port': 5432,
+         'dbname': 'your_database'
      }
      ```
-
-2. **CrewAI Configuration:**
-   - Configure your CrewAI agents and tasks in `crewai_config.py`:
-
-     ```python
-     CREWAI = {
-         'agents': ['analyst', 'writer'],
-         'tasks': ['research_task', 'writer_task']
-     }
-     ```
-
-3. **Qdrant Configuration:**
-   - Define vector parameters and collection settings in `qdrant_config.py`:
-
-     ```python
-     QDRANT = {
-         'collection_name': 'Flight',
-         'vector_size': 300
-     }
-     ```
-
+     
 ## Usage
 
 1. **Run the Project:**
    - Execute the main script to make price predictions:
 
      ```bash
-     python app.py --input data.txt --output result.txt
+     python app.py --key ''  --env dev
      ```
 
 2. **Review Results:**

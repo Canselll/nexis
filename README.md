@@ -129,9 +129,8 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
                                 departure_date TIMESTAMP,
                                 arrival_date TIMESTAMP
                             );
-
-
-     ```
+                            
+    ```
 
 
 

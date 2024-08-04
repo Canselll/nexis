@@ -131,8 +131,8 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
                             );
                             
     ```
-
-## Configuration
+    
+    ## Configuration
 
 1. **Database Configuration:**
    - Update the `base.py` file with your PostgreSQL connection details:
@@ -172,6 +172,6 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 
 ## Maintainers
 
-- **Your Name** - *Project Lead* - [Your GitHub Profile](https://github.com/Canselll/nexis)
+- **Cansel Kandemir** - *Project Lead* - [Your GitHub Profile](https://github.com/Canselll/nexis)
 
 

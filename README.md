@@ -116,7 +116,7 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
                                 class VARCHAR NOT NULL
                             );
 
-    -- Create the flight_table
+     -- Create the flight_table
      CREATE TABLE flight_table (
                                 id SERIAL PRIMARY KEY,
                                 flight VARCHAR NOT NULL,

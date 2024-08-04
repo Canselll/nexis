@@ -132,9 +132,6 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
                             
     ```
 
-
-
-
 ## Configuration
 
 1. **Database Configuration:**
@@ -156,11 +153,11 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
    - Execute the main script to make price predictions:
 
      ```bash
-     python app.py --key ''  --env dev
+     python app.py --key 'your_key' --env dev
      ```
 
 2. **Review Results:**
-   - Check the `result.txt` file for the predictions.
+   - Check the `StatusReport.txt` file for the predictions.
 
 ## Troubleshooting & FAQ
 
@@ -175,7 +172,6 @@ To improve the results, we use the vector database Qdrant. Our goal is to take t
 
 ## Maintainers
 
-- **Your Name** - *Project Lead* - [Your GitHub Profile](https://github.com/YourGitHubProfile)
+- **Your Name** - *Project Lead* - [Your GitHub Profile](https://github.com/Canselll/nexis)
 
-- **Contributor Name** - *Contributor* - [Contributor GitHub Profile](https://github.com/ContributorGitHubProfile)
 

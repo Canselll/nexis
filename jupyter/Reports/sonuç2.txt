@@ -1,0 +1,34 @@
+To determine the optimal price range for each class and duration, we need to analyze the relationships between these variables. Based on the descriptive statistics and correlation analysis, we can identify the following insights:
+
+**Duration and Price**
+
+The strong positive correlation between duration and price (0.71) suggests that longer flights tend to be more expensive. To maximize revenue, airlines can adjust their pricing strategies according to flight duration. For instance, flights with longer durations can be priced higher to take advantage of the demand.
+
+**Class and Price**
+
+The moderate positive correlation between class and price (0.55) indicates that Business class tends to be more expensive than Economy class. To optimize pricing, airlines can consider the class type when setting prices. Business class prices can be higher due to the added amenities and services, while Economy class prices can be lower to attract more budget-conscious passengers.
+
+**Optimal Price Ranges**
+
+Based on the analysis, we can propose the following optimal price ranges for each class and duration:
+
+* Economy class:
+	+ Short-duration flights (≤ 4 hours): ₺15,000 - ₺25,000
+	+ Medium-duration flights (4-8 hours): ₺25,000 - ₺40,000
+	+ Long-duration flights (> 8 hours): ₺40,000 - ₺60,000
+* Business class:
+	+ Short-duration flights (≤ 4 hours): ₺30,000 - ₺50,000
+	+ Medium-duration flights (4-8 hours): ₺50,000 - ₺80,000
+	+ Long-duration flights (> 8 hours): ₺80,000 - ₺120,000
+
+These price ranges take into account the correlations between duration, class, and price, as well as the frequency and variability of each class. By adjusting prices according to these ranges, airlines can maximize revenue and optimize their pricing strategies.
+
+**Revenue Management**
+
+To further optimize revenue, airlines can consider the following strategies:
+
+* Dynamic pricing: Adjust prices in real-time based on demand and availability to maximize revenue.
+* Yield management: Allocate seats and prices to maximize revenue, taking into account the demand and competition.
+* Segment-based pricing: Offer different prices for different segments of passengers, such as students, seniors, or loyalty program members.
+
+By implementing these strategies and optimal price ranges, airlines can increase revenue, improve customer satisfaction, and stay competitive in the market.
